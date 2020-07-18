@@ -47,6 +47,14 @@ def get_prices(stocks):
         new_prices.append(get_bid(s.get_info()))
     return new_prices
 
+last_msg = 0
+
+def answer_to_response():
+    global last_msg
+    last_actv = last_update()
+    if last_actv['message']['text'] == 'hello' and not last_msg == last_actv['message']['message_id'] :
+        send_message(last_actv['message']['chat']['id'],'Yep, I\'m still working')
+        last_msg = last_actv['message']['message_id']
 #def main():
 #    stocks = 'NVDA AMD AAPL'
 #    chat_id = get_chat_id(last_update())
@@ -58,11 +66,13 @@ def get_prices(stocks):
 def main():
     chat_id = get_chat_id(last_update())
     send_message(chat_id,'Hello, this is message from Heroku')
-    time.sleep(30)
+    time.sleep(120)
     send_message(chat_id,'One module is working')
+    answer_to_response()
 if __name__ == '__main__':
     try:
-        main()
+        while True:
+            main()
     except KeyboardInterrupt:
         print("Here wr")
         exit()   

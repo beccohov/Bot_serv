@@ -67,7 +67,7 @@ def main():
     chat_id = get_chat_id(last_update())
     send_message(chat_id,'Hello, this is message from Heroku')
     print("Here1")
-    time.sleep(10)
+    #time.sleep(10)
     #send_message(chat_id,'One module is working')
     #answer_to_response()
     #print("Here2")

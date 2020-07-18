@@ -47,19 +47,22 @@ def get_prices(stocks):
         new_prices.append(get_bid(s.get_info()))
     return new_prices
 
-def main():
-    stocks = 'NVDA AMD AAPL'
-    chat_id = get_chat_id(last_update())
-    prices = get_prices(stocks)
-    while True:
-        prices = see_all(stocks,chat_id, prices)
-        time.sleep(40)
+#def main():
+#    stocks = 'NVDA AMD AAPL'
+#    chat_id = get_chat_id(last_update())
+#    prices = get_prices(stocks)
+#    while True:
+#        prices = see_all(stocks,chat_id, prices)
+#        time.sleep(40)
     
+def main():
+    chat_id = get_chat_id(last_update())
+    send_message(chat_id,'Hello, this is message from Heroku')
+    time.sleep(30)
+    send_message(chat_id,'One module is working')
 if __name__ == '__main__':
     try:
         main()
     except KeyboardInterrupt:
         print("Here wr")
-        exit()
-    
-    
+        exit()   

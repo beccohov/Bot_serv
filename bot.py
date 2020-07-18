@@ -1,6 +1,7 @@
 import requests
 import time
 import yfinance as yf
+import lxml
 base_url = 'https://api.telegram.org/bot1301051793:AAGUAMh8DMsv5bFtJnCKMrwfSP59zZ_5Rtg/'
 def get_updates():
     answ = requests.get(base_url + 'getUpdates')

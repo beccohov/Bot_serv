@@ -66,12 +66,14 @@ def answer_to_response():
 def main():
     chat_id = get_chat_id(last_update())
     send_message(chat_id,'Hello, this is message from Heroku')
-    time.sleep(120)
+    print("Here1")
+    time.sleep(20)
     send_message(chat_id,'One module is working')
     answer_to_response()
+    print("Here2")
 if __name__ == '__main__':
     try:
-        while True:
+        for _  in range(5):
             main()
     except KeyboardInterrupt:
         print("Here wr")
